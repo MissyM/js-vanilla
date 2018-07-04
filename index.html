@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Tic-Tac-Toe</title>
+</head>
+<body>
+  
+  <div class="board"> 
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+    <div class="square"> </div>
+  </div>
+
+  <script>
+    var circle_simbol= 'O'
+    var x_simbol= 'x' 
+    var currentTurn = circle_simbol
+    
+    var board = document.querySelector('.board')
+    board.addEventListener('click', function(e) {
+      e.target.innerHTML = currentTurn
+      currentTurn = currentTurn === circle_simbol ? x_simbol : circle_simbol
+    })
+  </script>
+
+</body>
+</html>
