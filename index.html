@@ -30,7 +30,19 @@
     board.addEventListener('click', function(e) {
       e.target.innerHTML = currentTurn
       currentTurn = currentTurn === circle_simbol ? x_simbol : circle_simbol
+      checkForWinner()
     })
+
+    function checkForWinner() {
+      /*This is the way to turn that NodeList (which acts like an array, 
+      but doesn’t have the methods from Array.prototype) into a real array.*/
+      var squares = Array.prototype.slice.call(document.querySelectorAll('.square'),0)
+      var symbols = squares.map(function(square) {
+        return square.innerHTML
+      })
+      console.log(symbols)
+    }
+
   </script>
 
 </body>
