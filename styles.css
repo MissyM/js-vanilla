@@ -1,3 +1,9 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
   display: flex;
   width: 600px;
@@ -5,13 +11,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  background: #D8D0C5;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .square {
   width: 200px;
   height: 200px;
   box-sizing: border-box;
-  border: 5px solid black;
+  border: 5px solid white;
   font-size: 5em;
   display: flex;
   justify-content: center;
@@ -20,5 +28,6 @@
 
 .square:hover {
   cursor: pointer;
-  background-color: yellowgreen;
+  background-color: #4973FF;
+  color: white;
 }
