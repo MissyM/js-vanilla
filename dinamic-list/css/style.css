@@ -1,0 +1,38 @@
+.container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 10px 20px;
+  padding: 10px;
+}
+h1 {
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+li {
+  width: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-bottom: solid 0.5px rgb(243, 240, 240);
+  padding-bottom:5px;
+  font-size: 15px;
+  margin-bottom:5px;
+
+}
+button {
+  color: white;
+  background: #454ADE;
+  border: none;
+  margin-left: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 24px -4px rgba(211,204,237,1);
+  font-weight: 600;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background: #1B1F3B;
+}
+button:focus  {
+  border: none;
+}
+.active {
+  background: rgb(238, 238, 243);
+}
