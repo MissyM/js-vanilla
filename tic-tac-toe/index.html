@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    
+    <div class="board"> 
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <script>
+      var O = 'O'
+      var X = 'X' 
+      var currentTurn = O
+      
+      var board = document.querySelector('.board')
+      board.addEventListener('click', function(e) {
+        e.target.innerHTML = currentTurn
+        //La siguiente linea dice si currentTurn es O cambie a X, sino cambie a O.
+        currentTurn = currentTurn === O ? X : O
+        //Se ejecuta la función que chequea si es ganador
+        if(checkForWinner()) {
+          alert('ALGUIEN GANÓ')
+        }
+      })
+
+      function checkForWinner() {
+        var squares = Array.prototype.slice.call(document.querySelectorAll('.square'),0)
+        var symbols = squares.map(function(square) {
+          return square.innerHTML
+        })
+        var winningCombos = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+        return winningCombos.find(function(combo) {
+          if (symbols[combo[0]]==symbols[combo[1]] && symbols[combo[1]]==symbols[combo[2]]){
+            return symbols[combo[0]]
+          } else {
+            return false
+          }
+        })
+      }
+
+    </script>
+  </body>
+</html>
