@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Move div with arrows</title>
+    </head>
+    <body>
+        <div 
+            id="block"
+            style="background:mediumaquamarine;
+             width: 100px; 
+             height: 100px; 
+             position: absolute; 
+             top: 0; 
+             left: 0;"
+             
+        />
+        <script>
+            let modifier = 5;
+            const block = document.getElementById("block");
+            let moveDown = document.addEventListener('keydown', (event) => {
+            const { style } = block;
+                switch (event.key) {
+                    case 'ArrowUp': style.top = `${parseInt(style.top) - modifier}px`; break;
+                    case 'ArrowDown': style.top = `${parseInt(style.top) + modifier}px`; break;
+                    case 'ArrowLeft': style.left = `${parseInt(style.left) - modifier}px`; break;
+                    case 'ArrowRight': style.left = `${parseInt(style.left) +  modifier}px`; break;
+                }
+            })
+        </script>
+    </body>
+</html>
