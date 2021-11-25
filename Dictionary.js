@@ -33,14 +33,4 @@ const buildGraph = (edges) => {
   return graph
 }
 
-// const addEdge = (from, to) => {
-//  let graph = {}
-//  if (graph[from]== null) {
-//   graph[from] = [to]
-//  } else {
-//   graph[from].push(to)
-//  }
-
-// }
-
 console.log(buildGraph(roads))
