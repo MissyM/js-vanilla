@@ -1,39 +1,32 @@
-//Given an array with two strings N and K. Find the min substring which contain the
-//characters of K in N
 function MinWindowSubstring(strArr) {
-  let string = strArr[0]
-  let letters = strArr[1]
+  //Get unique and repited charts of K in a hash table
+  let N = strArr[0]
+  let K = strArr[1]
+  let minSubstring = null
 
-  let shortestString = null
-
-  // for (let i = letters.length; i <= string.length; i++) {
-  //   for (let j = 0; j <= string.length - letters.length; j++) {
-  for (let i = 0; i < string.length; i++) {
-    for (let j = i; j < string.length; j++) {
-      let testString = string.substr(i, j - i + 1)
-      console.log(testString)
-      if (subIncludesAll(testString, letters)) {
-        if (
-          shortestString === null ||
-          testString.length < shortestString.length
-        ) {
-          shortestString = testString
-        }
+  for (let i = (K.length = 0); i < N.length; i++) {
+    for (let j = 0; j < N.length - i; j++) {
+      let substring = N.substr(j, i)
+      if (isSubstring(substring)) {
+        return substring
       }
     }
   }
-  return shortestString
+  return "Is not substring"
 
-  function subIncludesAll(str, letters) {
-    for (let i = 0; i < str.length; i++) {
-      if (letters.indexOf(str[i]) !== -1) {
-        // remove letter from letters
-        letters = letters.replace(str[i], "")
+  function isSubstring(substring) {
+    let arr = substring.split("")
+    for (let i = 0; i < K.length; i++) {
+      let aux = arr.findIndex((val) => val === K[i])
+      if (aux === -1) {
+        return false
+      } else {
+        arr.splice(aux, 1)
       }
     }
-    return letters.length === 0
+    return true
   }
 }
-
-// keep this function call here
+//Input: ["aaffhkksemckelloe", "fhea"]
+//Output: affhkkse
 console.log(MinWindowSubstring(["aaffhkksemckelloe", "fhea"]))
