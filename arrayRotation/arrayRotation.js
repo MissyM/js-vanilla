@@ -1,27 +1,26 @@
 /**
- * A left rotation on an array shifts each of the array's elements 1 unit to 
- * left. For example, if 2 left rotation are performed on array [1,2,3,4,5],
- * then the array would become [3,4,5,1,2].
- * Task
-*Given an integer, , perform the following conditional actions:
-
-*If  is odd, print Weird
-*If  is even and in the inclusive range of  to , print Not Weird
-*If  is even and in the inclusive range of  to , print Weird
-*If  is even and greater than , print Not Weird
-*Complete the stub code provided in your editor to print whether or not  is weird.*
+ To rotate by one, store arr[0] in a temporary variable temp,
+ move arr[1] to arr[0], arr[2] to arr[1] …and finally temp to arr[n-1]
+Let us take the same example arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2 
+Rotate arr[] by one 2 times 
+We get [2, 3, 4, 5, 6, 7, 1] after first rotation and [ 3, 4, 5, 6, 7, 1, 2]
+after second rotation.
  */
-function rotLeft(arr, rotations) {
-  for(let i= 0; i < rotations; i++) {
-   let frontItem = arr.shift()
-   arr.push(frontItem)
+function leftRotate(arr, d, n) {
+  for(let i = 0; i < d; i++) {
+   leftRotationByOne(arr, n);
   }
-   return arr
+  return arr
 }
-const numRotation = 3
-const sampleArr = [1,2,3,4,5]
+function leftRotationByOne(arr, n) {
+  let i, temp;
+  temp = arr[0];
+  for (i = 0; i < n-1; i++) {
+    arr[i] = arr[i + 1];
+  }
+  arr[n-1] = temp;
+}
 
-const expectedOutput = [3,4,5,1,2]
 
 
-console.log(rotLeft(sampleArr, 2))
+console.log(leftRotate([1, 2, 3, 4, 5, 6, 7], 2, 7))
